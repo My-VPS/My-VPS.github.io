@@ -1,10 +1,17 @@
 <template>
   <div class="nav">
     <div class="navbar w-100">
-      <img class="logo" alt="Myserver logo" src="../assets/logo-text.png" />
+      <router-link class="link" to="/">
+        <img class="logo" alt="Myserver logo" src="../assets/logo-text.png" />
+      </router-link>
       <div class="links">
-        <p class="link">Our Offers</p>
+        <router-link to="/offers">
+          <p class="link">Our Offers</p>
+        </router-link>
+        <router-link to="/about">
         <p class="link">About us</p>
+
+        </router-link>
         <button class="cta-offers">Buy now $</button>
       </div>
       <div class="burger-menu" v-on:click="toggle = !toggle">
@@ -14,7 +21,7 @@
       </div>
     </div>
     <transition name="slide-fade">
-      <div class="mobile-nav" v-if="toggle" v-on:click="toggle = !toggle" >
+      <div class="mobile-nav" v-if="toggle" v-on:click="toggle = !toggle">
         <div class="w-100 d-flex justify-content-end">
           <div class="mobile-link">Our Offers</div>
         </div>
@@ -113,7 +120,7 @@ export default Vue.extend({
 .mobile-nav {
   z-index: 1;
   height: 100vh;
-  width:100%;
+  width: 100%;
   background: rgb(96, 120, 234);
   background: linear-gradient(
     180deg,

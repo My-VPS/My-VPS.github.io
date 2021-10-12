@@ -26,9 +26,7 @@
         <p>We have been nominated as the best service on the Internet 2021.</p>
       </div>
     </div>
-    <div class="third-section">
-      <CtaCustomize class="cta-customize"></CtaCustomize>
-    </div>
+      <CtaCustomize></CtaCustomize>
     <Footer></Footer>
   </div>
 </template>
@@ -78,22 +76,13 @@ export default Vue.extend({
   display: flex;
   width: 50%;
 }
-.third-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin:30px 0px 30px 0px;
-  padding:0px 20px 0px 20px;
-}
-.cta-customize {
-  width: 100%;
-  max-width: 1200px;
-}
+
 .wrapper{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding:25px;
+  margin:30px 0px 30px 0px;
 }
 .article{
   width:300px;

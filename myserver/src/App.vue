@@ -38,5 +38,9 @@ p{
   position: fixed;
   z-index: 3;
 }
+a { text-decoration: none;color: inherit; }
+a:hover{
+  color:black;
+}
 
 </style>
