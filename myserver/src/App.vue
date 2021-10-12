@@ -1,13 +1,42 @@
 <template>
   <div id="app">
-    <p>hello</p>
+    <Navbar class="nav"></Navbar>
+    <router-view class="page"></router-view>
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+import Navbar from './components/Navbar.vue'
+
+export default Vue.extend({
+  components:{
+    Navbar
+  }
+})
+</script>
+
 <style lang="scss">
 #app {
-font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
+  background-color: #f7f7f7;
+  min-height: 100vh;
 }
+p{
+  font-size:16px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.page{
+  padding-top:70px;
+    z-index: 1;
 
+}
+.nav{
+  position: fixed;
+  z-index: 3;
+}
 
 </style>
