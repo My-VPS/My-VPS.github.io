@@ -12,7 +12,10 @@
         <p class="link">About us</p>
 
         </router-link>
+        <router-link to="/configs">
         <button class="cta-offers">Buy now $</button>
+
+        </router-link>
       </div>
       <div class="burger-menu" v-on:click="toggle = !toggle">
         <div class="first"></div>
