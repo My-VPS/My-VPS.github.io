@@ -29,6 +29,9 @@ p{
   box-sizing: border-box;
   margin: 0;
 }
+*:focus {
+    outline: none;
+}
 .page{
   padding-top:70px;
     z-index: 1;

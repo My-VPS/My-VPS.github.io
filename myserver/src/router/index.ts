@@ -28,6 +28,18 @@ const routes: Array<RouteConfig> = [
     component: () =>
       import(/* webpackChunkName: "configs" */ "../views/FirstConfigurations.vue"),
   },
+  {
+    path: "/configs/:ram/:cpu/:ssd",
+    name: "Configs",
+    component: () =>
+      import(/* webpackChunkName: "configs" */ "../views/SecondConfigurations.vue"),
+  },
+  {
+    path: "/checkout/:ram/:cpu/:ssd/:ios",
+    name: "Checkout",
+    component: () =>
+      import(/* webpackChunkName: "configs" */ "../views/Checkout.vue"),
+  },
 ];
 
 const router = new VueRouter({

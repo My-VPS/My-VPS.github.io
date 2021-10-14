@@ -8,6 +8,7 @@
             <p>Coded with ❤️ by Ducki and Léa</p>
       </div>
   </div>
+
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -35,4 +36,5 @@ export default Vue.extend({
         font-size:16px;
     }
 }
+
 </style>

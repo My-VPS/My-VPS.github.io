@@ -26,13 +26,19 @@
     <transition name="slide-fade">
       <div class="mobile-nav" v-if="toggle" v-on:click="toggle = !toggle">
         <div class="w-100 d-flex justify-content-end">
+             <router-link to="/offers">
           <div class="mobile-link">Our Offers</div>
+             </router-link>
         </div>
         <div class="w-100 d-flex justify-content-end">
+            <router-link to="/about">
           <div class="mobile-link">About us</div>
+            </router-link>
         </div>
         <div class="w-100 d-flex justify-content-end">
+              <router-link to="/configs">
           <button class="cta-offers">Buy now $</button>
+              </router-link>
         </div>
       </div>
     </transition>
