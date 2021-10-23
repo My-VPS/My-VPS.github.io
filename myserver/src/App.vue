@@ -29,6 +29,9 @@ p{
   box-sizing: border-box;
   margin: 0;
 }
+*:focus {
+    outline: none;
+}
 .page{
   padding-top:70px;
     z-index: 1;
@@ -37,6 +40,10 @@ p{
 .nav{
   position: fixed;
   z-index: 3;
+}
+a { text-decoration: none;color: inherit; }
+a:hover{
+  color:black;
 }
 
 </style>
