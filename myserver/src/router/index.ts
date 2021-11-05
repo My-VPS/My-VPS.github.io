@@ -35,7 +35,7 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "configs" */ "../views/SecondConfigurations.vue"),
   },
   {
-    path: "/checkout/:ram/:cpu/:ssd/:ios",
+    path: "/checkout/:ram/:cpu/:ssd/:os/:hostname",
     name: "Checkout",
     component: () =>
       import(/* webpackChunkName: "configs" */ "../views/Checkout.vue"),

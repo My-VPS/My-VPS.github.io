@@ -9,20 +9,24 @@
           </h2>
           <div class="d-flex asset">
             <img src="../assets/emoji/check.png" alt="" />
-            <p>{{ deal.ram }} RAM</p>
+            <p>{{ deal.ram }} GB RAM</p>
           </div>
           <div class="d-flex asset">
             <img src="../assets/emoji/check.png" alt="" />
-            <p>{{ deal.core }} CORE</p>
+            <p>{{ deal.cpu }} CORE</p>
           </div>
           <div class="d-flex asset">
             <img src="../assets/emoji/check.png" alt="" />
-            <p>{{ deal.os }}</p>
+            <p>{{ deal.ssd }} SSD</p>
           </div>
           <div class="d-flex cta-deals">
             <h2>{{ deal.price }}€/m</h2>
             <button :class="deal.button" class="deal-button">
-              Chose this deal
+              <router-link
+                :to="'/configs/' + deal.ram + '/' + deal.cpu + '/' + deal.ssd"
+              >
+                Chose this deal
+              </router-link>
             </button>
           </div>
         </div>
@@ -42,27 +46,30 @@ export default Vue.extend({
       deals: [
         {
           name: "Standard",
-          ram: "64GB",
+          ram: 64,
+          cpu: 2,
           os: "iOs",
-          core: "8",
+          ssd: 8,
           price: 7,
           color: "blue",
           button: "blue-button",
         },
         {
           name: "Premium",
-          ram: "64GB",
+          ram: 64,
+          cpu: 2,
           os: "iOs",
-          core: "8",
+          ssd: 8,
           price: 12,
           color: "pink",
           button: "pink-button",
         },
         {
           name: "Premium ++",
-          ram: "64GB",
+          ram: 64,
+          cpu: 2,
           os: "iOs",
-          core: "8",
+          ssd: 8,
           price: 18,
           color: "gold",
           button: "gold-button",
@@ -81,9 +88,9 @@ export default Vue.extend({
 p {
   margin: 0;
 }
-h1{
-    margin-top:15px;
-    width:30%;
+h1 {
+  margin-top: 15px;
+  width: 30%;
 }
 .cards {
   display: flex;
@@ -92,10 +99,8 @@ h1{
   justify-content: space-between;
   width: 100%;
   margin-top: 40px;
-
 }
 .card {
-
   width: 30%;
   margin: 10px;
   padding: 24px;
@@ -165,12 +170,12 @@ h2 .blue {
   .card {
     width: 100%;
   }
-  .cards{
-      justify-content: flex-start;
+  .cards {
+    justify-content: flex-start;
   }
-   h1{
-      width:80%;
-      margin-left:10px;
+  h1 {
+    width: 80%;
+    margin-left: 10px;
   }
 }
 </style>
