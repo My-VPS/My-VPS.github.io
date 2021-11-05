@@ -25,7 +25,7 @@
       <hr class="line" />
       <div class="wrapper">
         <p class="label">Total :</p>
-        <p>A shit ton of money </p>
+        <p>{{totalPrice}} €/month</p>
       </div>
       <div class="button">
         <button @click="clicked = !clicked">Checkout</button>
@@ -52,6 +52,27 @@ export default Vue.extend({
     return {
       clicked: false,
     };
+  },
+  computed: {
+    totalPrice(){
+      var price = 0
+      if(this.$route.params.ram >4){
+        price += 4
+      }else if(this.$route.params.ram >8){
+        price += 6
+      }else{
+        price +=2
+      }
+      if(this.$route.params.cpu >4){
+        price += 4
+      }else if(this.$route.params.cpu >8){
+        price += 6
+      }else{
+        price +=2
+      }
+      price += this.$route.params.cpu*1.5
+      return price
+    }
   },
   components: {
     Footer,

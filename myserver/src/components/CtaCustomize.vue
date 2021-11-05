@@ -6,7 +6,9 @@
         <p>With our VPS configuration tool</p>
       </div>
       <div class="button">
+        <router-link to="/configs">
         <button class="letsgo">Let's go !</button>
+        </router-link>
       </div>
     </div>
   </div>
