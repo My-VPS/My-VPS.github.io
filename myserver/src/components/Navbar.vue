@@ -110,6 +110,7 @@ export default Vue.extend({
   transition: 0.6s;
 }
 .burger-menu:hover {
+  cursor: pointer;
   .first {
     transform: rotate(405deg) translateY(14px);
   }

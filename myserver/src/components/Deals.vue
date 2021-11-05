@@ -33,7 +33,9 @@
       </div>
     </div>
     <div class="customize">
-      <button class="cta-customize">Customize your own</button>
+      <router-link to="/configs">
+        <button class="cta-customize">Customize your own</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -50,27 +52,27 @@ export default Vue.extend({
           cpu: 2,
           os: "iOs",
           ssd: 8,
-          price: 7,
+          price: 9,
           color: "blue",
           button: "blue-button",
         },
         {
           name: "Premium",
-          ram: 64,
-          cpu: 2,
+          ram: 32,
+          cpu: 4,
           os: "iOs",
-          ssd: 8,
+          ssd: 5,
           price: 12,
           color: "pink",
           button: "pink-button",
         },
         {
           name: "Premium ++",
-          ram: 64,
-          cpu: 2,
+          ram: 32,
+          cpu: 8,
           os: "iOs",
-          ssd: 8,
-          price: 18,
+          ssd: 6,
+          price: 20,
           color: "gold",
           button: "gold-button",
         },
