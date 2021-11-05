@@ -5,10 +5,9 @@
       <CtaCustomize class="cta-customize"></CtaCustomize>
     </div>
     <div class="footer">
-            <p>Coded with ❤️ by Ducki and Léa</p>
-      </div>
+      <p>Coded with ❤️ by Ducki and Léa</p>
+    </div>
   </div>
-
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -28,13 +27,12 @@ export default Vue.extend({
   background-color: #6078ea;
   min-height: 100vh;
 }
-.footer{
-    padding:60px 0px 30px 0px;
-    text-align: center;
-    color:white;
-    p{
-        font-size:16px;
-    }
+.footer {
+  padding: 60px 0px 30px 0px;
+  text-align: center;
+  color: white;
+  p {
+    font-size: 16px;
+  }
 }
-
 </style>

@@ -49,7 +49,11 @@
           <p class="unit">GB</p>
         </div>
         <div class="button" :class="{ disabled: checkValid }">
-          <router-link :to="'/configs/'+selectedCpu+'/'+selectedRam+'/'+selectedSSD">
+          <router-link
+            :to="
+              '/configs/' + selectedCpu + '/' + selectedRam + '/' + selectedSSD
+            "
+          >
             <button>Select</button>
           </router-link>
         </div>
@@ -79,8 +83,8 @@ export default Vue.extend({
       selectedSSD: 1,
       maxSSD: 12,
       valid: false,
-      checkRam:false,
-      checkSsd:false
+      checkRam: false,
+      checkSsd: false,
     };
   },
   components: {
@@ -90,16 +94,16 @@ export default Vue.extend({
     checkValid() {
       if (this.selectedCpu && this.selectedRam && this.selectedSSD) {
         if (this.selectedCpu > this.selectedRam) {
-          if(this.selectedSSD>(this.selectedRam/2)){
-            return false
-          }else{
-            return true
+          if (this.selectedSSD > this.selectedRam / 2) {
+            return false;
+          } else {
+            return true;
           }
         } else {
-          return true
+          return true;
         }
-      }else{
-        return true
+      } else {
+        return true;
       }
     },
   },
@@ -144,10 +148,10 @@ h2 {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;
 }
-.warn{
-  margin:20px 0px 0px 20px;
-  font-size:12px;
-  font-style:italic;
+.warn {
+  margin: 20px 0px 0px 20px;
+  font-size: 12px;
+  font-style: italic;
   color: #d3208b;
 }
 .criteria {

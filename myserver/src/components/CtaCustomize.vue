@@ -7,7 +7,7 @@
       </div>
       <div class="button">
         <router-link to="/configs">
-        <button class="letsgo">Let's go !</button>
+          <button class="letsgo">Let's go !</button>
         </router-link>
       </div>
     </div>

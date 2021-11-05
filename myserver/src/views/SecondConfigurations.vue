@@ -34,13 +34,28 @@
             v-model="hostname"
             id=""
           />
-          <router-link :to="'/checkout/'+$route.params.ram+'/'+$route.params.cpu+'/'+$route.params.ssd+'/'+selectedOs+'/'+hostname">
+          <router-link
+            :to="
+              '/checkout/' +
+              $route.params.ram +
+              '/' +
+              $route.params.cpu +
+              '/' +
+              $route.params.ssd +
+              '/' +
+              selectedOs +
+              '/' +
+              hostname
+            "
+          >
             <button>Add hostname</button>
           </router-link>
         </div>
       </div>
     </transition>
-    <p class="warn" v-if="checkUrl == false && clicked == true">Enter a valid URL name</p>
+    <p class="warn" v-if="checkUrl == false && clicked == true">
+      Enter a valid URL name
+    </p>
     <Footer></Footer>
   </div>
 </template>
@@ -136,10 +151,10 @@ h2 {
     padding: 8px 32px 8px 32px;
   }
 }
-.warn{
-  margin-top:20px;
-  font-size:12px;
-  font-style:italic;
+.warn {
+  margin-top: 20px;
+  font-size: 12px;
+  font-style: italic;
   color: #d3208b;
 }
 .change-button {
