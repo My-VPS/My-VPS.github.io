@@ -4,13 +4,14 @@
     <div class="page-wrap">
       <div class="configs-block">
         <div class="wrapper">
-          <p class="criteria">RAM</p>
+          <p class="criteria">CPU</p>
           <div class="bareme">
             <div
               class="number"
               v-for="i in ram"
               :key="i"
-              @click="(e) => e.target.classList.toggle('number-selected')"
+              @click="selectCpu(i)"
+              :class="i == selectedCpu ? 'number-selected' : ''"
             >
               {{ i }}
             </div>
@@ -24,7 +25,8 @@
               class="number"
               v-for="i in ram"
               :key="i"
-              @click="(e) => e.target.classList.toggle('number-selected')"
+              @click="selectRam(i)"
+              :class="i == selectedRam ? 'number-selected' : ''"
             >
               {{ i }}
             </div>
@@ -32,22 +34,22 @@
           <p class="unit">GB</p>
         </div>
         <div class="wrapper">
-          <p class="criteria">RAM</p>
+          <p class="criteria">SSD</p>
           <div class="number-selector">
-            <div class="signs">
+            <div class="signs" @click="changeSSD('minus')">
               <p>-</p>
             </div>
             <div class="bareme">
-              <div class="number">1</div>
+              <div class="number">{{ selectedSSD }}</div>
             </div>
-            <div class="signs">
+            <div class="signs" @click="changeSSD('plus')">
               <p>+</p>
             </div>
           </div>
           <p class="unit">GB</p>
         </div>
-        <div class="button">
-          <router-link to="/configs/2/4/6">
+        <div class="button" :class="{ disabled: checkValid }">
+          <router-link :to="'/configs/'+selectedCpu+'/'+selectedRam+'/'+selectedSSD">
             <button>Select</button>
           </router-link>
         </div>
@@ -58,6 +60,7 @@
         <p>We have been nominated as the best service on the Internet 2021.</p>
       </div>
     </div>
+    <p class="warn" v-if="checkValid">Select enough RAM and SSD for your VPS</p>
     <Footer></Footer>
   </div>
 </template>
@@ -71,10 +74,53 @@ export default Vue.extend({
     return {
       ram: [1, 2, 4, 8, 16, 32],
       cpu: [1, 2, 4, 8, 16, 32],
+      selectedRam: null,
+      selectedCpu: null,
+      selectedSSD: 1,
+      maxSSD: 12,
+      valid: false,
+      checkRam:false,
+      checkSsd:false
     };
   },
   components: {
     Footer,
+  },
+  computed: {
+    checkValid() {
+      if (this.selectedCpu && this.selectedRam && this.selectedSSD) {
+        if (this.selectedCpu > this.selectedRam) {
+          if(this.selectedSSD>(this.selectedRam/2)){
+            return false
+          }else{
+            return true
+          }
+        } else {
+          return true
+        }
+      }else{
+        return true
+      }
+    },
+  },
+  methods: {
+    changeSSD(sign) {
+      if (sign == "plus") {
+        if (this.selectedSSD < this.maxSSD) {
+          this.selectedSSD++;
+        }
+      } else {
+        if (this.selectedSSD > 0) {
+          this.selectedSSD--;
+        }
+      }
+    },
+    selectRam(selected) {
+      this.selectedRam = selected;
+    },
+    selectCpu(selected) {
+      this.selectedCpu = selected;
+    },
   },
 });
 </script>
@@ -82,6 +128,10 @@ export default Vue.extend({
 h2 {
   margin: 50px 0px 30px 20px;
   font-size: 24px;
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 .configs-block {
   margin: 30px 20px 0px 20px;
@@ -91,6 +141,14 @@ h2 {
   width: 60%;
   padding: 30px;
   max-width: 800px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;
+}
+.warn{
+  margin:20px 0px 0px 20px;
+  font-size:12px;
+  font-style:italic;
+  color: #d3208b;
 }
 .criteria {
   width: 80px;
@@ -142,7 +200,11 @@ h2 {
   p {
     margin: 0;
     color: white;
+    /* Safari */
   }
+}
+.signs:hover {
+  cursor: pointer;
 }
 .number-selected {
   background: rgba(96, 120, 234, 0.2);

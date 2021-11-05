@@ -8,28 +8,24 @@
       </div>
       <div class="wrapper">
         <p class="label">CPU</p>
-        <p>{{ $route.params.ram }} GB</p>
+        <p>{{ $route.params.cpu }} GB</p>
       </div>
       <div class="wrapper">
         <p class="label">SSD</p>
-        <p>{{ $route.params.ram }} GB</p>
+        <p>{{ $route.params.ssd }} Cores</p>
       </div>
       <div class="wrapper">
         <p class="label">OS</p>
-        <p>{{ $route.params.ram }} GB</p>
-      </div>
-      <div class="wrapper">
-        <p class="label">Bonus</p>
-        <p>{{ $route.params.ram }} GB</p>
+        <p>{{ $route.params.os }}</p>
       </div>
       <div class="wrapper last">
         <p class="label">Name</p>
-        <p>{{ $route.params.ram }} GB</p>
+        <p>{{ $route.params.hostname }}</p>
       </div>
       <hr class="line" />
       <div class="wrapper">
         <p class="label">Total :</p>
-        <p>{{ $route.params.ram }} GB</p>
+        <p>A shit ton of money </p>
       </div>
       <div class="button">
         <button @click="clicked = !clicked">Checkout</button>

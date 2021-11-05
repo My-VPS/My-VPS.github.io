@@ -2,28 +2,14 @@
   <div class="configs">
     <h2>2. Chose your OS</h2>
     <div class="container-configs">
-      <div class="os-card">
+      <div class="os-card" v-for="i in os" :key="i">
         <div class="content">
-          <img src="../assets/ubuntu.png" alt="" />
+          <img :src="require(`@/assets/${i}.png`)" alt="" />
         </div>
         <div class="content">
-          <button @click="select[0]=!select[0]">Select</button>
-        </div>
-      </div>
-      <div class="os-card">
-        <div class="content">
-          <img src="../assets/ubuntu.png" alt="" />
-        </div>
-        <div class="content">
-          <button @click="select[1]=!select[1]" :class="{'selected' :clicked}" >Select</button>
-        </div>
-      </div>
-      <div class="os-card">
-        <div class="content">
-          <img src="../assets/ubuntu.png" alt="" />
-        </div>
-        <div class="content">
-          <button v-on:click="clicked = !clicked;select[2]=!select[2]">Select</button>
+          <button :class="{ disabled: notSelectedOs(i) }" @click="selectOs(i)">
+            Select
+          </button>
         </div>
       </div>
       <div class="article">
@@ -32,21 +18,29 @@
         <p>We have been nominated as the best service on the Internet 2021.</p>
       </div>
     </div>
+    <button class="change-button" v-if="clicked" @click="changeOs()">
+      Change OS
+    </button>
     <transition name="slide-fade">
-
-    <h2 v-if="clicked">4. Enter your hostname</h2>
-        </transition>
-    <transition name="slide-fade">
-
-    <div class="host-card" v-if="clicked">
-      <div class="host-content">
-        <input type="text" name="" placeholder="MyServer.com" id="" />
-        <router-link to="/checkout/2/3/4/ios">
-        <button>Add hostname</button>
-        </router-link>
-      </div>
-    </div>
+      <h2 v-if="clicked">4. Enter your hostname</h2>
     </transition>
+    <transition name="slide-fade">
+      <div class="host-card" v-if="clicked">
+        <div class="host-content">
+          <input
+            type="text"
+            name=""
+            placeholder="MyServer.com"
+            v-model="hostname"
+            id=""
+          />
+          <router-link :to="'/checkout/'+$route.params.ram+'/'+$route.params.cpu+'/'+$route.params.ssd+'/'+selectedOs+'/'+hostname">
+            <button>Add hostname</button>
+          </router-link>
+        </div>
+      </div>
+    </transition>
+    <p class="warn" v-if="checkUrl == false && clicked == true">Enter a valid URL name</p>
     <Footer></Footer>
   </div>
 </template>
@@ -59,10 +53,46 @@ export default Vue.extend({
   data: function () {
     return {
       clicked: false,
-      select:[false,false,false]
+      os: ["ubuntu", "linux", "debian"],
+      select: [false, false, false],
+      selectedOs: null,
+      hostname: null,
+      showWarning: false,
     };
   },
-    components: {
+  computed: {
+    checkUrl() {
+      if (
+        /^(?:(ftp|http|https):\/\/)?(?:[\w-]+\.)+[a-z]{3,6}$/.test(
+          this.hostname
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  methods: {
+    notSelectedOs(i) {
+      if (this.selectedOs) {
+        if (i !== this.selectedOs) {
+          return true;
+        }
+      }
+    },
+    selectOs(i) {
+      this.selectedOs = i;
+      this.clicked = true;
+    },
+    changeOs() {
+      this.clicked = false;
+      this.selectedOs = null;
+      this.hostname = null;
+    },
+  },
+
+  components: {
     Footer,
   },
 });
@@ -71,6 +101,10 @@ export default Vue.extend({
 .configs {
   padding-left: 20px;
   padding-right: 20px;
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 .container-configs {
   display: flex;
@@ -87,7 +121,7 @@ h2 {
   width: 260px;
   margin-right: 30px;
   img {
-    width: 70%;
+    height: 150px;
     margin: 20px 0px 40px 0px;
   }
   .content {
@@ -102,6 +136,25 @@ h2 {
     padding: 8px 32px 8px 32px;
   }
 }
+.warn{
+  margin-top:20px;
+  font-size:12px;
+  font-style:italic;
+  color: #d3208b;
+}
+.change-button {
+  background-color: #d3208b;
+  opacity: 0.5;
+  font-style: italic;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+.change-button:hover {
+  opacity: 1;
+}
+
 .host-card {
   background-color: white;
   padding: 20px;
@@ -134,8 +187,8 @@ h2 {
     margin-bottom: 15px;
   }
 }
-.selected{
-    border: 0.5px solid #6078ea;
+.selected {
+  border: 0.5px solid #6078ea;
 }
 @media screen and (max-width: 600px) {
   .os-card {
