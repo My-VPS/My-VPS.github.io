@@ -56,21 +56,21 @@ export default Vue.extend({
   computed: {
     totalPrice() {
       var price = 0;
-      if (this.$route.params.ram > 4) {
+      if (parseInt(this.$route.params.ram,10) > 4) {
         price += 4;
-      } else if (this.$route.params.ram > 8) {
+      } else if (parseInt(this.$route.params.ram,10) > 8) {
         price += 6;
       } else {
         price += 2;
       }
-      if (this.$route.params.cpu > 4) {
+      if (parseInt(this.$route.params.cpu,10) > 4) {
         price += 4;
-      } else if (this.$route.params.cpu > 8) {
+      } else if (parseInt(this.$route.params.cpu,10) > 8) {
         price += 6;
       } else {
         price += 2;
       }
-      price += this.$route.params.cpu * 1.5;
+      price += parseInt(this.$route.params.cpu,10) * 1.5;
       return price;
     },
   },
