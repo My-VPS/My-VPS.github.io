@@ -11,8 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-![Group 1](https://user-images.githubusercontent.com/46668755/140665088-4abb5297-dac3-49d7-a647-c7046915eb08.png)
-
+  <img src="myserver/src/assets/logo-text.png">
   <h3 align="center">Advanced Web development project</h3>
 
   <p align="center">
