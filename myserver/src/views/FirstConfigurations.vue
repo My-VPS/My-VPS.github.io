@@ -108,7 +108,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    changeSSD(sign) {
+    changeSSD(sign : string) {
       if (sign == "plus") {
         if (this.selectedSSD < this.maxSSD) {
           this.selectedSSD++;

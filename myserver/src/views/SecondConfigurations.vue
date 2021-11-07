@@ -70,8 +70,8 @@ export default Vue.extend({
       clicked: false,
       os: ["ubuntu", "linux", "debian"],
       select: [false, false, false],
-      selectedOs: null,
-      hostname: null,
+      selectedOs: "",
+      hostname: "",
       showWarning: false,
     };
   },
@@ -89,21 +89,21 @@ export default Vue.extend({
     },
   },
   methods: {
-    notSelectedOs(i) {
+    notSelectedOs(i: string) {
       if (this.selectedOs) {
         if (i !== this.selectedOs) {
           return true;
         }
       }
     },
-    selectOs(i) {
+    selectOs(i: string) {
       this.selectedOs = i;
       this.clicked = true;
     },
     changeOs() {
       this.clicked = false;
-      this.selectedOs = null;
-      this.hostname = null;
+      this.selectedOs = "";
+      this.hostname = "";
     },
   },
 
