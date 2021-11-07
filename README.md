@@ -29,7 +29,6 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
-      
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -95,11 +94,15 @@ _Follow these steps to launch our VPS website on your computer._
    ```sh
    git clone https://github.com/My-VPS/My-VPS.github.io.git
    ```
-2. Install NPM packages
+2. Move to the right directory
+   ```sh
+   cd myserver
+   ```
+3. Install NPM packages
    ```sh
    npm install
    ```
-3. Launch app
+4. Launch app
    ```sh
    npm run serve
    ```
@@ -150,7 +153,7 @@ Duc-Thomas Nguyen - [ducki.dev](https://ducki.dev/)
 Léa Buendé - [lea-buende.com](https://lea-buende.com/#/)
 <img height="100" alt="Capture d’écran 2021-11-08 à 00 22 43" src="https://user-images.githubusercontent.com/46668755/140665733-195253a8-9455-4c29-8ff0-ada7cb63f830.png">
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/My-VPS/My-VPS.github.io)
+Project Link: [github.com/My-VPS/My-VPS.github.io](https://github.com/My-VPS/My-VPS.github.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
