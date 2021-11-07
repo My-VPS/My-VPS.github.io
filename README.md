@@ -11,9 +11,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  
   <img src="myserver/src/assets/logo-text.png">
   <h3 align="center">Advanced Web development project</h3>
-
   <p align="center">
     An awesome VPS provider to fit your needs !
     <br />
