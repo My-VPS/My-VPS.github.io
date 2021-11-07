@@ -118,7 +118,9 @@ _Follow these steps to launch our VPS website on your computer._
 
 - [x] Using dynamic routes all over
 - [x] Reusing deundant components all over
-- [x] Custom design of application on figma
+- [x] Custom design of application on Figma
+<img width="668" alt="Capture d’écran 2021-11-08 à 00 28 03" src="https://user-images.githubusercontent.com/46668755/140665919-5f59985a-3bc7-40c1-ac0a-2afbccc21277.png">
+
 - [x] Fully responsive implementation
 - [] Add real life constraints for VPS configurations
 - [] Correct 0 warning type declarations
