@@ -12,7 +12,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    ![Group 1](https://user-images.githubusercontent.com/46668755/140665043-71e1db02-fc4c-4cb9-b6ae-5209dd69d7a9.png)
+![Group 1](https://user-images.githubusercontent.com/46668755/140665088-4abb5297-dac3-49d7-a647-c7046915eb08.png)
+
   </a>
 
   <h3 align="center">Advanced Web development project</h3>
